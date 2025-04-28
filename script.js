@@ -4,7 +4,7 @@ const message = document.getElementById('message');
 
 // Show hint
 function showHintHandler() {
-    message.textContent = 'Hint: The positions follow the sequence of Markov numbers (1, 2, 5, 13, ...), wrapping around the grid.';
+    message.textContent = 'Hint: The positions follow the sequence of prime numbers (2, 3, 5, 7, ...), wrapping around the grid.';
     message.style.color = '#2196F3';
 }
 

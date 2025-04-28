@@ -1,0 +1,17 @@
+# Ignore Python files
+*.py
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore generated grid HTML file
+grid_output.html
+
+# Ignore virtual environment directories
+venv/
+.venv/
+env/
+.env/ 
