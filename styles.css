@@ -43,7 +43,7 @@ h1 {
 .grid {
     display: grid;
     grid-template-columns: repeat(10, 40px); /* 10 columns */
-    grid-template-rows: repeat(7, 40px);    /* 7 rows */
+    grid-template-rows: repeat(6, 40px);    /* 6 rows */
     gap: 6px;
     justify-content: center;
     margin: 20px 0;
@@ -60,6 +60,22 @@ h1 {
     min-width: 40px;
     min-height: 40px;
     box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.grid-cell:hover {
+    transform: scale(1.05);
+}
+
+.grid-cell.correct {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.grid-cell.incorrect {
+    background-color: #f44336;
+    color: white;
 }
 
 .controls {
