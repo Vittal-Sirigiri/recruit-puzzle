@@ -23,6 +23,7 @@ body {
 h1 {
     color: #333;
     margin-bottom: 30px;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .limerick {
@@ -30,6 +31,7 @@ h1 {
     color: #555;
     margin-bottom: 20px;
     line-height: 1.4;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
 
 .puzzle-container {
@@ -38,15 +40,17 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    overflow-x: auto;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(10, 40px); /* 10 columns */
-    grid-template-rows: repeat(6, 40px);    /* 6 rows */
+    grid-template-columns: repeat(10, minmax(30px, 40px));
+    grid-template-rows: repeat(6, minmax(30px, 40px));
     gap: 6px;
     justify-content: center;
-    margin: 20px 0;
+    margin: 20px auto;
+    max-width: 100%;
 }
 
 .grid-cell {
@@ -54,14 +58,15 @@ h1 {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: clamp(1rem, 2vw, 1.5em);
     background: #eee;
     border-radius: 4px;
-    min-width: 40px;
-    min-height: 40px;
+    min-width: 30px;
+    min-height: 30px;
     box-sizing: border-box;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
+    aspect-ratio: 1;
 }
 
 .grid-cell:hover {
@@ -83,6 +88,7 @@ h1 {
     gap: 10px;
     justify-content: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 input[type="text"] {
@@ -100,6 +106,7 @@ button {
     color: white;
     cursor: pointer;
     transition: background-color 0.2s;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 button:hover {
@@ -110,19 +117,38 @@ button:hover {
     min-height: 20px;
     color: #333;
     font-weight: bold;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    padding: 0 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .puzzle-container {
+        padding: 10px;
+    }
+
     .grid {
-        grid-template-columns: repeat(15, 1fr);
+        gap: 4px;
     }
-    
-    .controls {
-        flex-direction: column;
-        align-items: center;
+
+    .grid-cell {
+        min-width: 25px;
+        min-height: 25px;
+        font-size: 0.9rem;
     }
-    
-    input[type="text"] {
-        width: 100%;
+}
+
+@media (max-width: 400px) {
+    .grid-cell {
+        min-width: 20px;
+        min-height: 20px;
+        font-size: 0.8rem;
     }
 } 
